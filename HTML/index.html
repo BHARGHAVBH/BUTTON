@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dodge</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      background-color: #ffb2d0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    img {
+      width: 300px;
+      height: 200px;
+   
+    }
+
+    .caption {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: top 0.2s, left 0.2s;
+    }
+
+    #yesBtn {
+      background-color: #FF69B4;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #FF69B4;
+      color: white;
+      position: absolute;
+    }
+  </style>
+</head>
+<body style="background-color:ffb2d0">
+
+  <div class="container">
+    <img src="T1.gif" alt="Cute Image">
+    <div class="caption">DO YOU LIKE ME? &#128522</div>
+    <div class="buttons">
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    let dodgeTries = 0;
+    const maxDodge = 5;
+
+    noBtn.addEventListener('mouseover', () => {
+      if (dodgeTries < maxDodge) {
+        dodgeTries++;
+
+        const randX = Math.floor(Math.random() * window.innerWidth);
+        const randY = Math.floor(Math.random() * window.innerHeight);
+
+        noBtn.style.left = `${randX}px`;
+        noBtn.style.top = `${randY}px`;
+      } else {
+        noBtn.style.left = '-1000px';
+        noBtn.style.top = '-1000px';
+      }
+    });
+
+    yesBtn.addEventListener('click', () => {
+      window.location.href = "index2.html";;
+    });
+	
+  </script>
+
+</body>
+</html>
